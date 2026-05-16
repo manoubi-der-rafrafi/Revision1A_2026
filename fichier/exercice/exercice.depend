@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1778965296 source:c:\users\lenovo\desktop\etude\1a\revision2026\fichier\exercice\main.c
+	<stdio.h>
+	<stdlib.h>
+	"fonction.h"
+
+1778965737 source:c:\users\lenovo\desktop\etude\1a\revision2026\fichier\exercice\fonction.c
+	"fonction.h"
+
+1778963770 c:\users\lenovo\desktop\etude\1a\revision2026\fichier\exercice\fonction.h
+	<stdio.h>
+	<stdlib.h>
+
