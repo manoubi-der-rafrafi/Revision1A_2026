@@ -101,3 +101,7 @@ int main()
 
     return 0;
 }
+void liberer(Voyageur *tab)
+{
+    free(tab);
+}

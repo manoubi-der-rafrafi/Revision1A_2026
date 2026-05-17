@@ -1,7 +1,6 @@
 #include"fonction.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 void saisirVoyageur(Voyageur *ptv)
 {
@@ -11,13 +10,13 @@ void saisirVoyageur(Voyageur *ptv)
     }
 
     printf("Donner l'identifiant du voyageur : ");
-    scanf(" %49[^\n]", ptv->id);
+    scanf("%s", ptv->id);
 
     printf("Donner le nom du voyageur : ");
-    scanf(" %49[^\n]", ptv->nom);
+    scanf("%s", ptv->nom);
 
     printf("Donner l'adresse du voyageur : ");
-    scanf(" %49[^\n]", ptv->adresse);
+    scanf("%s", ptv->adresse);
 
     printf("Donner le nombre total de voyages : ");
     scanf("%d", &ptv->nbVoyages);
@@ -45,28 +44,26 @@ int nbVoyageurs(char nomFich[])
 }
 Voyageur *charger_donnees(char nomFich[], int *n)
 {
-    Voyageur *tab = NULL;
+    Voyageur *tab ;
     FILE *fichier;
     (*n) = nbVoyageurs(nomFich) ;
-    if (*n > 0)
-    {
-        tab =(Voyageur*) malloc((*n) * sizeof(Voyageur));
-    }
+    tab =(Voyageur*) malloc((*n) * sizeof(Voyageur));
     fichier = fopen(nomFich , "rb");
-    if(fichier != NULL)
+    if(fichier != NULL && tab != NULL)
     {
-        if (*n > 0 && tab != NULL)
-        {
-            fread(tab , sizeof(Voyageur) , *n , fichier);
-        }
+        fread(tab , sizeof(Voyageur) , *n , fichier);
         fclose(fichier);
+    }
+    else
+    {
+        printf("probleme d'ouverture");
     }
     return tab ;
 }
 Voyageur *charger_donnees2(char nomFich[], int *n)
 {
     Voyageur v;
-    Voyageur *tab = NULL;
+    Voyageur *tab ;
     FILE *fichier;
     fichier = fopen(nomFich , "rb");
     (*n) = 0;
@@ -127,7 +124,7 @@ Voyageur * ajouter (Voyageur v, Voyageur * tab, int * n)
     }
     else
     {
-        tab[pos].nbVoyages++;
+        printf("voyageur existe deja!!\n");
     }
     return tab;
 }
@@ -142,14 +139,10 @@ void supprimer(Voyageur *tab, char id[], int *n)
             tab[i] = tab[i+1];
         }
         (*n)--;
+        tab =(Voyageur*) realloc(tab , (*n) * sizeof(Voyageur));
     }
     else
     {
-        printf("voyageur n'existe pas !!\n");
+        printf("voyageur n'existe pas deja!!\n");
     }
-}
-
-void liberer(Voyageur *tab)
-{
-    free(tab);
 }

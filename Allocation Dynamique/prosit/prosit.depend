@@ -1,5 +1,14 @@
 # depslib dependency file v1.0
-1584205420 source:c:\users\lenovo\desktop\etude\1a\revision2026\allocation dynamique\prosit\main.c
+1779018022 source:c:\users\lenovo\desktop\etude\1a\revision2026\allocation dynamique\prosit\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	"fonction.h"
+
+1779020055 source:c:\users\lenovo\desktop\etude\1a\revision2026\allocation dynamique\prosit\fonction.c
+	"fonction.h"
+	<stdio.h>
+	<stdlib.h>
+
+1779014361 c:\users\lenovo\desktop\etude\1a\revision2026\allocation dynamique\prosit\fonction.h
 
